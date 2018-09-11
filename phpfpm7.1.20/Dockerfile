@@ -37,19 +37,19 @@ ENV PHPIZE_DEPS \
 		pkg-config \
 		re2c \
 		# for gd
-		libjpeg62-dev \
+		libjpeg62-turbo-dev \
 		libpng-dev \
 		libfreetype6-dev \
-        bzip2-dev \
+        bzip2 \
         # for gd 
-        freetype \
-        freetype-dev \
+        libfreetype6 \
+        libfreetype6-dev \
         # for intl extension
-        icu-dev \
+        libicu-dev \
         gettext \
         gettext-dev \
         # for rdkafka
-        librdkafka \
+        librdkafka1 \
         librdkafka-dev \
         curl-dev
 
