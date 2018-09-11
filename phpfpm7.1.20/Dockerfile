@@ -11,7 +11,7 @@ RUN set -eux; \
 	} > /etc/apt/preferences.d/no-debian-php
 
 
-RUN echo 'deb http://mirrors.163.com/debian/ jessie main non-free contrib ' >> /etc/apt/sources.list  \ 
+RUN echo 'deb http://mirrors.163.com/debian/ jessie main non-free contrib ' > /etc/apt/sources.list  \ 
     && echo 'deb http://mirrors.163.com/debian/ jessie-updates main non-free contrib ' >> /etc/apt/sources.list \
     && echo 'deb http://mirrors.163.com/debian/ jessie-backports main non-free contrib ' >> /etc/apt/sources.list  \
     && echo 'deb-src http://mirrors.163.com/debian/ jessie main non-free contrib ' >> /etc/apt/sources.list \ 
