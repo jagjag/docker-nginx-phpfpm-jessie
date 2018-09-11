@@ -240,7 +240,7 @@ RUN set -eux; \
 
 COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 
-ENTRYPOINT ["docker-php-entrypoint"]
+ENTRYPOINT ["/usr/local/bin/docker-php-entrypoint"]
 
 WORKDIR /var/www/html
 
