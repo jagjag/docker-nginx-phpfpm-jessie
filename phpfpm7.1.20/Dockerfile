@@ -37,11 +37,9 @@ ENV PHPIZE_DEPS \
 		pkg-config \
 		re2c \
 		# for gd
-		jpeg \
-        libjpeg \
-        jpeg-dev \
-        libpng  \
-        libpng-dev \
+		libjpeg62-dev \
+		libpng-dev \
+		libfreetype6-dev \
         bzip2-dev \
         # for gd 
         freetype \
