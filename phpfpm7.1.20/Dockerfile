@@ -182,7 +182,6 @@ RUN set -eux; \
 		--with-libedit \
 		--with-openssl \
 		--with-zlib \
-	    --enable-embedded-mysqli \
 		--with-gd \
 		--with-pdo-mysql \
         --with-iconv \
