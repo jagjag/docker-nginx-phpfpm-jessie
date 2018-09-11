@@ -127,9 +127,9 @@ RUN set -xe; \
 	\
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps
 
-COPY docker-php-source /usr/local/bin/
+COPY docker-php-source docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 
-RUN chmod a+x /usr/local/bin/docker-php-source
+RUN chmod a+x /usr/local/bin/docker-php-*
 
 RUN set -eux; \
 	\
@@ -238,7 +238,7 @@ RUN set -eux; \
 	pecl update-channels; \
 	rm -rf /tmp/pear ~/.pearrc
 
-COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
+
 
 ENTRYPOINT ["/usr/local/bin/docker-php-entrypoint"]
 
