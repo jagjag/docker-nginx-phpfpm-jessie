@@ -62,7 +62,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN set -x \
 	&& addgroup --gid 800 --system www \
-	&& adduser --uid 800 --disabled-password --system --gid 800 www
+	&& adduser --uid 800 --disabled-password --system --no-create-home --gid 800 www
 
 
 ENV PHP_INI_DIR /usr/local/etc/php
