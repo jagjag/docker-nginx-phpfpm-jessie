@@ -295,7 +295,7 @@ RUN set -ex \
 
 COPY www.conf /usr/local/etc/php-fpm.d/
 
-RUN touch /var/log/php/php-fpm_error.log && chown www:www /var/log/php/php-fpm_error.log
+RUN mkdir -p /var/log/php && touch /var/log/php/php-fpm_error.log && chown www:www /var/log/php/php-fpm_error.log
 
 RUN /usr/bin/curl -sS https://getcomposer.org/installer | /usr/local/bin/php  \
     &&  /bin/mv composer.phar /usr/local/bin/composer  \
