@@ -129,6 +129,8 @@ RUN set -xe; \
 
 COPY docker-php-source /usr/local/bin/
 
+RUN chmod a+x /usr/local/bin/docker-php-source
+
 RUN set -eux; \
 	\
 	savedAptMark="$(apt-mark showmanual)"; \
