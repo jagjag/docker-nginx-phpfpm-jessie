@@ -281,6 +281,7 @@ RUN set -ex \
 	} | tee php-fpm.d/zz-docker.conf
 
 
+
 # enable extension
 
 RUN /usr/local/bin/pecl install mongodb \
@@ -293,6 +294,8 @@ RUN set -ex \
     && echo 'extension=rdkafka.so' > /usr/local/etc/php/conf.d/rdkafka.ini 
 
 COPY www.conf /usr/local/etc/php-fpm.d/
+
+RUN touch /var/log/php/php-fpm_error.log && chown www:www /var/log/php/php-fpm_error.log
 
 RUN /usr/bin/curl -sS https://getcomposer.org/installer | /usr/local/bin/php  \
     &&  /bin/mv composer.phar /usr/local/bin/composer  \
