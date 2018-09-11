@@ -129,7 +129,7 @@ RUN set -xe; \
 
 COPY docker-php-source docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 
-RUN chmod a+x /usr/local/bin/docker-php-*
+RUN chown www:www /usr/local/bin/docker-php-* && chmod a+x /usr/local/bin/docker-php-*
 
 RUN set -eux; \
 	\
