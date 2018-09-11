@@ -294,6 +294,7 @@ RUN set -ex \
     && echo 'extension=rdkafka.so' > /usr/local/etc/php/conf.d/rdkafka.ini 
 
 COPY www.conf /usr/local/etc/php-fpm.d/
+COPY php.ini-production  /usr/local/etc/php/php.ini
 
 RUN mkdir -p /var/log/php && touch /var/log/php/php-fpm_error.log && chown www:www /var/log/php/php-fpm_error.log
 
