@@ -182,8 +182,7 @@ RUN set -eux; \
 		--with-libedit \
 		--with-openssl \
 		--with-zlib \
-		# xdf custom
-	    --enable-embedded-mysqli \
+	    --enable-embedded-mysqli \  # xdf custom
 		--with-gd \
 		--with-pdo-mysql \
         --with-iconv \
