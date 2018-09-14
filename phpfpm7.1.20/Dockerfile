@@ -295,6 +295,7 @@ RUN set -ex \
 
 COPY www.conf /usr/local/etc/php-fpm.d/
 COPY php.ini-production  /usr/local/etc/php/php.ini
+COPY php.ini-development /usr/local/etc/php/php.ini-development
 
 RUN mkdir -p /var/log/php && touch /var/log/php/php-fpm_error.log && chown www:www /var/log/php/php-fpm_error.log
 
