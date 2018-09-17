@@ -47,10 +47,8 @@ ENV PHPIZE_DEPS \
         # for intl extension
         libicu-dev \
         gettext \
-        # for rdkafka
-###        librdkafka1 \
-###       librdkafka-dev \
         libcurl3
+
 
 # persistent / runtime deps
 RUN apt-get update && apt-get install -y \
