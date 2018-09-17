@@ -122,8 +122,9 @@ RUN set -xe; \
 #		command -v gpgconf > /dev/null && gpgconf --kill all; \
 #		rm -rf "$GNUPGHOME"; \
 #	fi; \
-	\
-	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps
+#	\
+#  ## move to the end of enable extension  
+#	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps
 
 COPY docker-php-source docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 
@@ -240,7 +241,7 @@ RUN set -eux; \
 
 ENTRYPOINT ["/usr/local/bin/docker-php-entrypoint"]
 
-WORKDIR /var/www/html
+WORKDIR /neworiental
 
 RUN set -ex \
 	&& cd /usr/local/etc \
@@ -307,6 +308,9 @@ RUN mkdir -p /var/log/php && touch /var/log/php/php-fpm_error.log && chown www:w
 RUN /usr/bin/curl -sS https://getcomposer.org/installer | /usr/local/bin/php  \
     &&  /bin/mv composer.phar /usr/local/bin/composer  \
     &&  composer config -g repo.packagist composer https://packagist.phpcomposer.com 
+
+## purge 
+RUN apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps
 
 EXPOSE 9000
 CMD ["php-fpm"]
