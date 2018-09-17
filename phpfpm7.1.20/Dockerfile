@@ -48,8 +48,8 @@ ENV PHPIZE_DEPS \
         libicu-dev \
         gettext \
         # for rdkafka
-        librdkafka1 \
-        librdkafka-dev \
+###        librdkafka1 \
+###       librdkafka-dev \
         libcurl3
 
 # persistent / runtime deps
@@ -283,6 +283,13 @@ RUN set -ex \
 
 
 # enable extension
+
+RUN wget https://github.com/edenhill/librdkafka/archive/v0.11.5.tar.gz -O librdkafka-0.11.5.tar.gz \
+    && tar -zxf librdkafka-0.11.5.tar.gz \
+    && cd librdkafka-0.11.5 \
+    && ./configure \
+    && make \
+    && make install 
 
 RUN /usr/local/bin/pecl install mongodb \
     && /usr/local/bin/pecl install redis \
