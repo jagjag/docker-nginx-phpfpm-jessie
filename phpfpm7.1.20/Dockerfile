@@ -110,7 +110,7 @@ RUN set -xe; \
 	fi; \
 	if [ -n "$PHP_MD5" ]; then \
 		echo "$PHP_MD5 *php.tar.xz" | md5sum -c -; \
-	fi; \
+	fi; ### !!!!! remember to add a "\"  when you open the follow lines
 #	\
 #	if [ -n "$PHP_ASC_URL" ]; then \
 #		wget -O php.tar.xz.asc "$PHP_ASC_URL"; \
@@ -125,6 +125,7 @@ RUN set -xe; \
 #	\
 #  ## move to the end of enable extension  
 #	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps
+
 
 COPY docker-php-source docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 
