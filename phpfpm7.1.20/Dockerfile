@@ -47,7 +47,11 @@ ENV PHPIZE_DEPS \
         # for intl extension
         libicu-dev \
         gettext \
-        libcurl3
+        libcurl3 \
+        # for mongo
+        libcurl4-openssl-dev \
+        pkg-config \
+        libssl-dev
 
 
 # persistent / runtime deps
