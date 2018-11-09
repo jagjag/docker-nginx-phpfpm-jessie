@@ -288,14 +288,14 @@ RUN set -ex \
 
 # enable extension
 
-RUN wget https://github.com/edenhill/librdkafka/archive/v0.11.5.tar.gz -O /tmp/librdkafka-0.11.5.tar.gz \
+RUN wget https://github.com/edenhill/librdkafka/archive/v0.11.6.tar.gz -O /tmp/librdkafka-0.11.6.tar.gz \
     && cd /tmp \
-    && tar -zxf librdkafka-0.11.5.tar.gz \
-    && cd /tmp/librdkafka-0.11.5 \
+    && tar -zxf librdkafka-0.11.6.tar.gz \
+    && cd /tmp/librdkafka-0.11.6 \
     && ./configure \
     && make \
     && make install \
-    && rm -rf /tmp/librdkafka-0.11.5 /tmp/librdkafka-0.11.5.tar.gz
+    && rm -rf /tmp/librdkafka-0.11.6 /tmp/librdkafka-0.11.6.tar.gz
 
 RUN /usr/local/bin/pecl install mongodb \
     && /usr/local/bin/pecl install redis \
