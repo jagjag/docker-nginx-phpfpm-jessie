@@ -52,8 +52,8 @@ ENV PHPIZE_DEPS \
         libcurl4-openssl-dev \
         pkg-config \
         libssl-dev \
-        cron \
-        php-mysql
+        php-mysql \
+        cron
 
 
 # persistent / runtime deps
