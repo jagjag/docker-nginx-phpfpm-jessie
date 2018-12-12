@@ -35,7 +35,16 @@ ENV PHPIZE_DEPS \
 		libc-dev \
 		make \
 		pkg-config \
-		re2c \
+		re2c 
+
+
+
+# persistent / runtime deps
+RUN apt-get update && apt-get install -y \
+		$PHPIZE_DEPS \
+		ca-certificates \
+		curl \
+		xz-utils \
 		# for gd
 		libjpeg62-turbo-dev \
 		libpng-dev \
@@ -52,17 +61,7 @@ ENV PHPIZE_DEPS \
         libcurl4-openssl-dev \
         pkg-config \
         libssl-dev \
-        php-mysql # \
-      #  cron
-
-
-# persistent / runtime deps
-RUN apt-get update && apt-get install -y \
-		$PHPIZE_DEPS \
-		ca-certificates \
-		curl \
-		xz-utils \
-		cron \
+        php-mysql \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
 RUN set -x \
