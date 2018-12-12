@@ -52,7 +52,7 @@ ENV PHPIZE_DEPS \
         libcurl4-openssl-dev \
         pkg-config \
         libssl-dev \
-        crontab \
+        cron \
         php-mysql
 
 
@@ -318,6 +318,13 @@ RUN mkdir -p /var/log/php && touch /var/log/php/php-fpm_error.log && chown www:w
 RUN /usr/bin/curl -sS https://getcomposer.org/installer | /usr/local/bin/php  \
     &&  /bin/mv composer.phar /usr/local/bin/composer  \
     &&  composer config -g repo.packagist composer https://packagist.phpcomposer.com 
+
+
+ENV appname=dockertingyun
+COPY tingyun-agent-php-2.9.1.x86_64.deb  /usr/local/tingyun/
+RUN dpkg -i /usr/local/tingyun/tingyun-agent-php-2.9.1.x86_64.deb
+
+
 
 ## purge 
 RUN apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps
