@@ -20,8 +20,8 @@ RUN echo 'deb http://mirrors.163.com/debian/ jessie main non-free contrib ' > /e
     && echo 'deb http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib ' >> /etc/apt/sources.list \ 
     && echo 'deb-src http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib' >> /etc/apt/sources.list 
 
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo "Asia/Shanghai" > /etc/timezone
+#RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+#    && echo "Asia/Shanghai" > /etc/timezone
 
 
 # dependencies required for running "phpize"
@@ -51,7 +51,9 @@ ENV PHPIZE_DEPS \
         # for mongo
         libcurl4-openssl-dev \
         pkg-config \
-        libssl-dev
+        libssl-dev \
+        crontab \
+        php-mysql
 
 
 # persistent / runtime deps
@@ -208,6 +210,7 @@ RUN set -eux; \
         --with-curl \
         --with-jpeg-dir \
         --with-freetype-dir \
+        --with-mysqli \
 		\
 # bundled pcre does not support JIT on s390x
 # https://manpages.debian.org/stretch/libpcre3-dev/pcrejit.3.en.html#AVAILABILITY_OF_JIT_SUPPORT
