@@ -62,6 +62,7 @@ RUN apt-get update && apt-get install -y \
 		ca-certificates \
 		curl \
 		xz-utils \
+		cron \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
 RUN set -x \
