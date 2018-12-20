@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+tingyunappname=${appname}
+tingyunkey=key
+sed -i "3a nb_license=${tingyunkey}" /usr/lib/networkbench/networkbench-install.sh
+sed -i "4a nb_appname=${tingyunappname}" /usr/lib/networkbench/networkbench-install.sh
+sh /usr/bin/networkbench-install.sh install
+
+# first arg is `-f` or `--some-option`
+if [ "${1#-}" != "$1" ]; then
+	set -- php-fpm "$@"
+fi
+
+exec "$@"
