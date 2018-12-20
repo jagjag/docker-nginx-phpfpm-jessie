@@ -61,7 +61,7 @@ RUN apt-get update && apt-get install -y \
         libcurl4-openssl-dev \
         pkg-config \
         libssl-dev \
-        php-mysql \
+        php7.0-mysql \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
 RUN set -x \
